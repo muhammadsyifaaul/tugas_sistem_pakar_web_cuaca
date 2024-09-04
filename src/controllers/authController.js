@@ -38,7 +38,7 @@ exports.login = async (req,res) => {
                 message: 'Incorrect password'
             })
         }
-        // req.session.userId = user._id
+        req.session.userId = user._id
         return res.redirect('/homePage')
     }
 }
