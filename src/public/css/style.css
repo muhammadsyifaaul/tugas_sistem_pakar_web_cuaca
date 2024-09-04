@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(24, 24, 24, 0.4), rgba(24, 24, 24, 0.4)), url("bg1.jpg");
+    background: linear-gradient(rgba(24, 24, 24, 0.4), rgba(24, 24, 24, 0.4)), url("/img/bg1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
