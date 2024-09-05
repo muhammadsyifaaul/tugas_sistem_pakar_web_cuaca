@@ -19,7 +19,7 @@ app.use(session({
     secret: 'abogoboga',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: false }
   }))
 
 
