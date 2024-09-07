@@ -17,10 +17,10 @@
             <div class="conditions">
                 
                 <div class="temp">
-                    <p>20°</p>
+                    <p><%- data.current.temp_c %>°</p>
                 </div>
                 <div class="place">
-                    <p>London</p>
+                    <p><%- data.location.name %></p>
                     <div class="currentDateTime">
                         <p>Wednesday, 10:00, 9 sept'24</p>
                     </div>
@@ -33,13 +33,13 @@
         <div class="right">
             <div class="details-conditions">
                 <div class="search-bar">
-                    <form action="">
-                        <input type="text" placeholder="Search...">
+                    <form action="/search" method="get">
+                        <input type="text" placeholder="Search..." name="location">
                     </form>
                 </div>
                 <div class="title">
                     <h1>Weather Details</h1>
-                <h2>Snow</h2>
+                <h2><%- data.current.condition.text %></h2>
                 </div>
                 <div class="details">
                     <div class="detail-text">
@@ -50,11 +50,11 @@
                         <h1>Wind</h1>
                     </div>
                     <div class="detail-icon">
-                        <h1>25°C <span><i class='bx bxs-thermometer'></i></span></h1>
-                        <p>10°C <span class="low-temp"><i class='bx bxs-thermometer'></i></span></p>
-                        <h1>75% <i class='bx bx-droplet'></i></h1>
-                        <h1>80% <i class='bx bx-cloud' ></i></h1>
-                        <h1>5 km/h <i class='bx bx-wind'></i></h1>
+                        <h1><%- data.current.temp_c %>°C <span><i class='bx bxs-thermometer'></i></span></h1>
+                        <p><%- data.current.temp_f %>°C <span class="low-temp"><i class='bx bxs-thermometer'></i></span></p>
+                        <h1><%- data.current.humidity %> % <i class='bx bx-droplet'></i></h1>
+                        <h1><%- data.current.cloud %> % <i class='bx bx-cloud' ></i></h1>
+                        <h1><%- data.current.wind_kph %> k/h <i class='bx bx-wind'></i></h1>
                     </div>
                 </div>
                 <div class="forecast">
