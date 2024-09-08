@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/auth.css">
-</head>
-<body>
-    <div class="container">
-        <form action="/login" method="post">
-            <input type="email" placeholder="Email" name="email">
-            <input type="password" placeholder="Password" name="password" required>
-            <button type="submit">LOGIN</button>
-            <p>Don't have an account? <a href="/register">Register</a></p>
-        </form>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div class="splash">
+      <div class="icon">
+        <a
+          href="https://www.flaticon.com/free-animated-icons/climate-change"
+          title="climate-change animated icons"
+        >
+          <img src="/img/icon.gif" alt="logo"
+        /></a>
+      </div>
+      <h1>WEATHER WEB</h1>
     </div>
-</body>
+    <div class="container">
+      <form action="/login" method="post">
+        <input type="email" placeholder="Email" name="email" />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        <button type="submit">LOGIN</button>
+        <p>Don't have an account? <a href="/register">Register</a></p>
+      </form>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
 </html>
