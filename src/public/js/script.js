@@ -15,7 +15,9 @@ const preLoader = document.querySelector('.splash');
 
 window.addEventListener('load', () => {
     setTimeout(() => {
-        preLoader.classList.add('hidden');
-    }, 2000);
+        preLoader.style.display = 'none';
+        preLoader.style.pointerEvents = 'none';
+    }, 3000);
 });
+
 
