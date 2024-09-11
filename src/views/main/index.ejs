@@ -33,8 +33,9 @@
                 <div class="place">
                     <p><%- data.location.name %></p>
                     <div class="currentDateTime">
-                        <p>Wednesday, 10:00, 9 sept'24</p>
+                        <p> <%- `${today}, ${tgl} ${month} ${year}` %> </p>
                     </div>
+                    
                 </div>
                 <div class="condition">
                     <i class='<%- data.current.condition.icon %>'></i>
