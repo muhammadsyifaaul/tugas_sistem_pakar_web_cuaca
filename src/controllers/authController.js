@@ -39,6 +39,6 @@ exports.login = async (req,res) => {
             })
         }
         req.session.userId = user._id
-        return res.redirect('/homePage')
+        return res.redirect('/surveiPage')
     }
 }

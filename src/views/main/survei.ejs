@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/survei.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/olahData" method="post">
+            <h1>Halo <%- getUser.username %> Silahkan Input Data</h1>
+            <div class="input-group">
+                <input type="text" placeholder="Suhu" name="suhu"><span>°C</span>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Kelembaban Udara" name="kelembaban"><span>%</span>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Kecepatan Angin" name="kecepatanAngin"><span>Knot</span>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Lama Penyinaran" name="lamaPenyinaran"><span>%</span>
+            </div>
+            
+            <button type="submit">KONFIRMASI</button>
+        </form>
+
+    </div>
+</body>
+</html>
