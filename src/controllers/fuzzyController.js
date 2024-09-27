@@ -55,16 +55,6 @@ function defuzzifikasi(hasil) {
     return zNumerator / (zDenominator || 1);
 }
 
-// Contoh penggunaan
-// let suhu = 30; // Input suhu
-// let kelembaban = 80; // Input kelembaban
-// let kecepatanAngin = 5; // Input kecepatan angin
-// let lamaPenyinaran = 50; // Input lama penyinaran
-
-// let hasil = aturanFuzzy(suhu, kelembaban, kecepatanAngin, lamaPenyinaran);
-// let prediksiCuaca = defuzzifikasi(hasil);
-
-// console.log("Prediksi cuaca (nilai tegas):", prediksiCuaca);
 module.exports = {
     suhuKeanggotaan,
     kelembabanKeanggotaan,

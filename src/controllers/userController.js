@@ -68,24 +68,20 @@ exports.homePage = async (req, res) => {
             return res.status(400).send('Data cuaca tidak lengkap');
         }
 
-        // Gunakan fungsi keanggotaan untuk mengolah data
         const suhuFuzzy = suhuKeanggotaan(suhu);
         const kelembabanFuzzy = kelembabanKeanggotaan(kelembaban);
         const anginFuzzy = anginKeanggotaan(kecepatanAngin);
         const penyinaranFuzzy = penyinaranKeanggotaan(lamaPenyinaran);
 
-        // Kombinasikan dengan aturan fuzzy
         const hasilFuzzy = aturanFuzzy(suhu, kelembaban, kecepatanAngin, lamaPenyinaran);
 
-        // Lakukan defuzzifikasi
         const prediksiCuaca = defuzzifikasi(hasilFuzzy);
 
-        // Periksa apakah prediksiCuaca memiliki nilai valid
+
         if (isNaN(prediksiCuaca)) {
             return res.status(500).send('Error dalam perhitungan cuaca');
         }
 
-        // Kirim hasil ke view atau sebagai response
         res.send({ suhuFuzzy, kelembabanFuzzy, anginFuzzy, penyinaranFuzzy, prediksiCuaca });
     } catch (err) {
         console.error(err);
