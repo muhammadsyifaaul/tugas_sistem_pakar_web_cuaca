@@ -10,7 +10,10 @@
 <body>
     <div class="container">
         <form action="/olahData" method="post">
-            <h1>Halo <%- getUser.username %> Silahkan Input Data</h1>
+            <div class="title">
+                <h1>Halo <%- getUser.username %> </h1>
+            <h1>Silahkan Input Data</h1>
+            </div>
             <div class="input-group">
                 <input type="text" placeholder="Suhu" name="suhu"><span>°C</span>
             </div>
