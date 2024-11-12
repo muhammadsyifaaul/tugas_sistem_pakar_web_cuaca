@@ -9,7 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="splash">
+    <!-- <div class="splash">
         <div class="icon">
           <a
             href="https://www.flaticon.com/free-animated-icons/climate-change"
@@ -19,7 +19,7 @@
           /></a>
         </div>
         <h1>WEATHER WEB</h1>
-      </div>
+      </div> -->
     <main class="container">
         <div class="left">
             <div class="logo">
@@ -44,6 +44,9 @@
         </div>
         <div class="right">
             <div class="details-conditions">
+                <div class="logout-btn">
+                    <a href='javascript:void(0)' onclick="logout()">Logout</a>
+                </div>
                 
                 <div class="title">
                     <h1>Weather Details</h1>
@@ -64,43 +67,15 @@
                     </div>
                 </div>
                 <div class="forecast">
-                    <h1>Weather Forecast</h1>
+                    <h1>Prediction History</h1>
                     <div class="cards">
                         <div class="card">
-                            <div class="days">
-                                <div class="day"><h1>Today</h1></div>
-                                <div class="icon-weather"><i class='bx bx-cloud' ></i></div>
-                                <div class="weather"><h1>Rainy</h1></div>
-                            </div>
+        
+                                <div class="day"><h1>07-11-2024</h1></div>
+                                <div class="icon-weather"><i class='bx bx-cloud' ></i> <span>Rainy</span></div>
+         
                         </div>
-                        <div class="card">
-                            <div class="days">
-                                <div class="day"><h1>Today</h1></div>
-                                <div class="icon-weather"><i class='bx bx-cloud' ></i></div>
-                                <div class="weather"><h1>Rainy</h1></div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="days">
-                                <div class="day"><h1>Today</h1></div>
-                                <div class="icon-weather"><i class='bx bx-cloud' ></i></div>
-                                <div class="weather"><h1>Rainy</h1></div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="days">
-                                <div class="day"><h1>Today</h1></div>
-                                <div class="icon-weather"><i class='bx bx-cloud' ></i></div>
-                                <div class="weather"><h1>Rainy</h1></div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="days">
-                                <div class="day"><h1>Today</h1></div>
-                                <div class="icon-weather"><i class='bx bx-cloud' ></i></div>
-                                <div class="weather"><h1>Rainy</h1></div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -108,6 +83,8 @@
     </main>
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/script.js"></script>
+
 </body>
 </html>

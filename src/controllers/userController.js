@@ -1,5 +1,6 @@
 const { fetchData } = require('../api/getData')
 const { getIp } = require('../api/getLocation')
+const History = require('../models/HistoryModel')
 const User = require('../models/UserModel')
 const {
   suhuKeanggotaan,
@@ -95,6 +96,16 @@ exports.homePage = async (req, res) => {
     prediksiCuaca,
     icon 
   };
+  const history = new History({
+    cuaca: prediksiCuaca,
+    suhu,
+    kelembaban,
+    kecepatanAngin,
+    lamaPenyinaran,
+    user: req.session.userId
+  })
+
+  await history.save()
 
   res.render('main/index', {
       data,
@@ -106,18 +117,18 @@ exports.homePage = async (req, res) => {
 }
 
 
-exports.search = async (req, res) => {
-  const { location } = req.query
-  const data = await fetchData(location)
-  const condition = data.current.condition.text
-  for (let i in objCondition) {
-    if (i === condition) {
-      data.current.condition.icon = objCondition[i]
-    }
-  }
-  console.log(data)
-  res.render('main/index', { data, today, tgl, month, year })
-}
+// exports.search = async (req, res) => {
+//   const { location } = req.query
+//   const data = await fetchData(location)
+//   const condition = data.current.condition.text
+//   for (let i in objCondition) {
+//     if (i === condition) {
+//       data.current.condition.icon = objCondition[i]
+//     }
+//   }
+//   console.log(data)
+//   res.render('main/index', { data, today, tgl, month, year })
+// }
 
 exports.surveiPage = async (req, res) => {
   const getUser = await User.findOne({})
@@ -134,4 +145,10 @@ exports.olahDataCuaca = async (req, res) => {
   req.session.lamaPenyinaran = lamaPenyinaran
 
   res.redirect('/homePage')
+}
+
+exports.logout = async (req, res) => {
+  req.session.destroy()
+  res.clearCookie('connect.sid')
+  res.redirect('/login')
 }
