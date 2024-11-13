@@ -69,14 +69,15 @@
                 <div class="forecast">
                     <h1>Prediction History</h1>
                     <div class="cards">
-                        <div class="card">
-        
-                                <div class="day"><h1>07-11-2024</h1></div>
-                                <div class="icon-weather"><i class='bx bx-cloud' ></i> <span>Rainy</span></div>
-         
-                        </div>
-                        
+                        <% historyData.forEach(history => { %>
+                            <div class="card">
+                                <div class="day"><h1><%- history.formattedDateTime %></h1></div>
+                                <div class="icon-weather"><i class='bx bx-cloud'></i> <span><%= history.cuaca %></span></div>
+                            </div>
+                        <% }) %>
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>

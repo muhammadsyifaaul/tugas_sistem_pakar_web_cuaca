@@ -40,7 +40,11 @@ exports.login = async (req,res) => {
                 message: 'Incorrect password'
             })
         }
-        req.session.userId = user._id
+        req.session.user = {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+        };
         return res.redirect('/surveiPage')
     }
 }

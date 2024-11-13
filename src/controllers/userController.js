@@ -40,6 +40,8 @@ const month = months[date.getMonth()]
 const year = date.getFullYear()
 
 exports.homePage = async (req, res) => {
+  const user = req.session.user
+  console.log(user)
   const suhu = req.session.suhu;
   const kelembaban = req.session.kelembaban;
   const kecepatanAngin = req.session.kecepatanAngin;
@@ -107,28 +109,50 @@ exports.homePage = async (req, res) => {
 
   await history.save()
 
+  const historyData = await History.find({}).populate('user');
+
+  const formattedHistoryData = historyData.map(history => {
+    const options = { 
+      weekday: 'short', 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric', 
+      hour: '2-digit', 
+      minute: '2-digit', 
+      second: '2-digit' 
+    };
+    
+    const formattedDateTime = history.tanggal.toLocaleString('en-US', options); 
+  
+    return {
+      ...history._doc,                
+      formattedDateTime               
+    };
+  });
+
   res.render('main/index', {
       data,
       today,
       tgl,
       month,
-      year
+      year,
+      historyData: formattedHistoryData
   });
 }
 
 
-// exports.search = async (req, res) => {
-//   const { location } = req.query
-//   const data = await fetchData(location)
-//   const condition = data.current.condition.text
-//   for (let i in objCondition) {
-//     if (i === condition) {
-//       data.current.condition.icon = objCondition[i]
-//     }
-//   }
-//   console.log(data)
-//   res.render('main/index', { data, today, tgl, month, year })
-// }
+exports.search = async (req, res) => {
+  const { location } = req.query
+  const data = await fetchData(location)
+  const condition = data.current.condition.text
+  for (let i in objCondition) {
+    if (i === condition) {
+      data.current.condition.icon = objCondition[i]
+    }
+  }
+  console.log(data)
+  res.render('main/index', { data, today, tgl, month, year })
+}
 
 exports.surveiPage = async (req, res) => {
   const getUser = await User.findOne({})
